@@ -1,0 +1,33 @@
+.navbar {
+  background: #003f62;
+  height: 100px;
+  width: 100%;
+}
+
+.formOne {
+  display: flex;
+  position: relative;
+}
+
+.formTwo {
+  position: relative;
+}
+
+.btns {
+  color: white;
+}
+
+.headingNav {
+  height: 50px;
+  width: 100%;
+}
+.footerNav {
+  background: #f4f4f4;
+}
+
+.m {
+  background: #003f62;
+}
+.s {
+  background: #eda415;
+}
