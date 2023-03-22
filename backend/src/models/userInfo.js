@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
 import {nanoid} from "nanoid"
 
-export const User = {
+export const Userinfo = {
     _id:{
         type:String,
-        default:nanoid()
     },
     
   name: {
@@ -16,10 +15,11 @@ export const User = {
     type: String,
     unique: true,
   },
-  role:{
-      type:mongoose.Types.ObjectId,
-      ref:"UserRole",
-  }
+ password:{
+     type:String,
+     unique:true
+
+ }
 };
 
 export const userSchema = new mongoose.Schema(User, { timestamps: true });
