@@ -1,10 +1,9 @@
-
-import { userRoleSchema } from "../models/userRoleModel";
+import { userRoleSchema } from "../models/userRolesModel";
 import mongoose from "mongoose";
 
 const userRoleModel = mongoose.model("UserRole", userRoleSchema);
 
-export const getRoleUsers = async () => {
+export const getUserRole = async () => {
   const users = await userRoleModel.find({});
   return users;
 };
@@ -13,8 +12,8 @@ export const getUserRoleById = async (id) => {
   return await userRoleModel.findById(id);
 };
 
-export const createUserRole = async (user) => {
-  return await userRoleModel.create(user);
+export const createUserRole = async (userRole) => {
+  return await userRoleModel.create(userRole);
 };
 
 export const updateUserRole = async (id, userRole) => {
@@ -22,5 +21,5 @@ export const updateUserRole = async (id, userRole) => {
 };
 
 export const deleteUserRole = async (id) => {
-  return await userRleModel.findByIdAndDelete(id);
+  return await userRoleModel.findByIdAndDelete(id);
 };

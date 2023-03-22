@@ -6,11 +6,11 @@ import Signup from "./Signup/Signup";
 export default function NavBar() {
   return (
     <>
-      {/* <HeadingNavbar />
+      <HeadingNavbar />
       <MainNavbar />
       <FooterNavbar />
-      <ProfielScreen /> */}
-      <Signup />
+      <ProfielScreen />
+      {/* <Signup /> */}
     </>
   );
 }
