@@ -1,7 +1,32 @@
+import axios from "axios";
+import { useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { TOAST_CONFIG } from "../utils/configs";
 import "./style.css";
 
 export default function Signin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  const submitSingIn = () => {
+    axios
+      .post("http://localhost:8081/api/login", { email, password })
+      .then((res) => {
+        if (res.status !== 200) {
+          toast.error(res.data.message, TOAST_CONFIG);
+        } else {
+          toast.success(res.data.message, TOAST_CONFIG);
+          localStorage.setItem("token", res.data.body.token);
+          navigate("/signin/success");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <Container>
@@ -11,15 +36,23 @@ export default function Signin() {
               <div className="mb-3 mt-md-4">
                 <h2 className="fw-bold mb-4">Sign in</h2>
                 <div className="mb-3">
-                  <Form>
+                  <Form onSubmit={(e) => {
+                e.preventDefault();
+                submitSingIn();
+              }}>
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                       <Form.Label className="text-center">Email*</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Control  value={email} onChange={(e) => {
+                    setEmail(e.target.value);
+                  }} type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-4" controlId="formBasicPassword">
                       <Form.Label>Password*</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }} type="password" placeholder="Password" />
                       <div className="mt-2 text-secondary">
                         Must be at least 8 characters.
                       </div>
@@ -42,12 +75,14 @@ export default function Signin() {
                   <div className="mt-5">
                     <p className="mb-0  text-center">
                       Create your e-commerce account?{" "}
+                      <Link to={"/signup"}>
                       <a
                         href="{''}"
                         className=" fw-bold purple-text text-decoration-none"
                       >
                         Create
                       </a>
+                      </Link>
                     </p>
                   </div>
                 </div>
