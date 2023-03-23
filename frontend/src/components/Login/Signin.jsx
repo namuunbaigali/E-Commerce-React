@@ -1,8 +1,7 @@
-import React from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import "../Signup/style.css";
+import "./style.css";
 
-export default function Signup() {
+export default function Signin() {
   return (
     <div>
       <Container>
@@ -10,14 +9,9 @@ export default function Signup() {
           <Col md={8} lg={6} xs={12}>
             <Card.Body>
               <div className="mb-3 mt-md-4">
-                <h2 className="fw-bold mb-4">Sign up</h2>
+                <h2 className="fw-bold mb-4">Sign in</h2>
                 <div className="mb-3">
                   <Form>
-                    <Form.Group className="mb-4" controlId="Name">
-                      <Form.Label className="text-center">Name*</Form.Label>
-                      <Form.Control type="text" placeholder="Enter Name" />
-                    </Form.Group>
-
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                       <Form.Label className="text-center">Email*</Form.Label>
                       <Form.Control type="email" placeholder="Enter email" />
@@ -41,18 +35,18 @@ export default function Signup() {
                         variant="secondary"
                         type="submit"
                       >
-                        Create Account
+                        Log in
                       </Button>
                     </div>
                   </Form>
                   <div className="mt-5">
                     <p className="mb-0  text-center">
-                      Already have an account??{" "}
+                      Create your e-commerce account?{" "}
                       <a
                         href="{''}"
                         className=" fw-bold purple-text text-decoration-none"
                       >
-                        Log in
+                        Create
                       </a>
                     </p>
                   </div>
