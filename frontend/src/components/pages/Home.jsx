@@ -1,3 +1,10 @@
-export default function Home(){
-    return <><h1>Hi</h1></>
+import { useCurrentUser } from "../../hooks/useCurrentUser";
+
+export default function Home() {
+  const { currentUser } = useCurrentUser();
+  return (
+    <>
+      <h1>Hi {currentUser.email}</h1>
+    </>
+  );
 }

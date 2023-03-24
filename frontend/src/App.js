@@ -5,33 +5,23 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import NavBar from './components/NavBar';
 
 import { Routes, Route} from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Signin from './components/Login/Signin';
 import Signup from './components/Login/Signup';
-import SigninSuccess from './components/Login/SigninSuccess';
 import Home from './components/pages/Home';
+import { useCurrentUser } from './hooks/useCurrentUser';
+import Signout from './components/Login/Signout';
 
 
 function App() {
-  const [me, setMe] = useState(undefined);
+  const {currentUser} = useCurrentUser();
+  console.log('currentUser:',currentUser);
 
-  useEffect(()=>{
-    const myData = localStorage.getItem("me");
-    if(myData !== "undefined"){
-      setMe(JSON.parse(myData));
-    }
-  },[]);
-
-  if(!me){
+  if(!currentUser){
     return(
       <>
       <Routes>
-        <Route path="/" element={<Signin/>} />
-        <Route
-          path="/signin/success"
-          element={<SigninSuccess setMe={setMe} />}
-        />
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="*" element={<Signin/>} />
       </Routes>
       </>
     )
@@ -39,9 +29,10 @@ function App() {
 
   return (
     <>
-    <NavBar  />
+    <NavBar/>
     <Routes>
       <Route path='/home' element={<Home/>}/>
+      <Route path="/signout" element={<Signout />} />
     </Routes>
     </>
   )

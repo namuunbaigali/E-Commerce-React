@@ -4,8 +4,12 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import { Col, Image, Row } from "react-bootstrap";
 import "./style.css";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function MainNavbar() {
+  const navigate = useNavigate();
+
   return (
     <Navbar className="navbar mx-auto w-100" expand="lg">
       <Container className="container h-100 p-2">
@@ -55,7 +59,7 @@ function MainNavbar() {
                 }}
               ></i>
               <a className="text-decoration-none text-white" href="/">
-                Sign in
+                <Link to={"/signout"}>Sign out</Link>
               </a>
             </div>
             <div className="d-flex align-items-center">
