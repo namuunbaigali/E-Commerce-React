@@ -33,7 +33,7 @@ export default function ProfielScreen() {
     const fd = new FormData();
     fd.append("image", e.target.files[0]);
     axios
-      .post("http://localhost:8081/api/files", fd, {
+      .post("http://localhost:8081/files", fd, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

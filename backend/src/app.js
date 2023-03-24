@@ -6,12 +6,20 @@ import userRolesRouter from "./routers/userRolesRouter";
 import { loginUser, registerUser } from "./services/usersService";
 import multer from "multer"
 import cloudinary from "cloudinary" 
+import { v4 as uuid } from "uuid";
+
+cloudinary.config({
+  cloud_name: "dv3q9baga",
+  api_key: "721463138334633",
+  api_secret: "9bvLCa4o2UFxy2PjlrpKpWuW_4Y",
+});
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "/tmp");
   },
   filename: (req, file, cb) => {
-    const fileName = nanoid();
+    const fileName = uuid();
     const splittedPath = file.originalname.split(".");
     const fileExtention = splittedPath[splittedPath.length - 1];
     cb(null, `${fileName}.${fileExtention}`);
@@ -30,11 +38,7 @@ const upload = multer({
     }
   },
 });
-cloudinary.config({
-  cloud_name: "dv3q9baga",
-  api_key: "721463138334633",
-  api_secret: "9bvLCa4o2UFxy2PjlrpKpWuW_4Y",
-});
+
 
 
 const PORT = 8081;
@@ -68,7 +72,7 @@ app.post("/api/login", async (req,res)=>{
   res.status(response.status).json(response)
 })
 
-app.post("/api/files", upload.single("image"), async (req, res) => {
+app.post("/files", upload.single("image"), async (req, res) => {
   const uploadedFile = await cloudinary.v2.uploader.upload(req.file.path);
   res.json(uploadedFile);
 });
