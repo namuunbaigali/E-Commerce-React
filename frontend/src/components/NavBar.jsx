@@ -7,10 +7,10 @@ import Signin from "./Login/Signin";
 export default function NavBar() {
   return (
     <>
-      <HeadingNavbar />
+      {/* <HeadingNavbar />
       <MainNavbar />
       <FooterNavbar />
-      <ProfielScreen />
+      <ProfielScreen /> */}
     </>
   );
 }
