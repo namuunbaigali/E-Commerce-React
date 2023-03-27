@@ -13,27 +13,27 @@ import Signout from './components/Login/Signout';
 
 
 function App() {
-  // const {currentUser} = useCurrentUser();
-  // console.log('currentUser:',currentUser);
+  const {currentUser} = useCurrentUser();
+  console.log('currentUser:',currentUser);
 
-  // if(!currentUser){
-  //   return(
-  //     <>
-  //     <Routes>
-  //       <Route path="/signup" element={<Signup/>}/>
-  //       <Route path="*" element={<Signin/>} />
-  //     </Routes>
-  //     </>
-  //   )
-  // }
+  if(!currentUser){
+    return(
+      <>
+      <Routes>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="*" element={<Signin/>} />
+      </Routes>
+      </>
+    )
+  }
 
   return (
     <>
     <NavBar/>
-    {/* <Routes>
+    <Routes>
       <Route path='/home' element={<Home/>}/>
       <Route path="/signout" element={<Signout />} />
-    </Routes> */}
+    </Routes>
     </>
   )
 }
