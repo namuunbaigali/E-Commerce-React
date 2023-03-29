@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import Pagination from "react-bootstrap/Pagination";
 import "../pages/style.css";
+import Product from "../side2/components/Product";
 
 export default function Home() {
   let active = 2;
@@ -41,6 +42,7 @@ export default function Home() {
           </Col>
         </Row>
         <paginationBasic />
+        <Product/>
       </Container>
     </>
   );
