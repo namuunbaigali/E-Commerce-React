@@ -1,0 +1,23 @@
+{
+  "about": [
+    { "id": "1", "name": "News" },
+    { "id": "2", "name": "Services" },
+    { "id": "3", "name": "Our policy" },
+    { "id": "4", "name": "Custmer care" },
+    { "id": "5", "name": "Faq's" }
+  ],
+  "get": [
+    { "id": "1", "name": "About us" },
+    { "id": "2", "name": "Contact us" },
+    { "id": "3", "name": "Return policy" },
+    { "id": "4", "name": "Privacy policy" },
+    { "id": "5", "name": "Payment policy" }
+  ],
+  "find": [
+    { "id": "1", "name": "Brownze arnold" },
+    { "id": "2", "name": "Chronograph blue" },
+    { "id": "3", "name": "Smart phones" },
+    { "id": "4", "name": "Automatic watch" },
+    { "id": "5", "name": "Hair straighteners" }
+  ]
+}

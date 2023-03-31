@@ -8,7 +8,7 @@ export default function NavBar() {
       <HeadingNavbar />
       <MainNavbar />
       <FooterNavbar />
-      <ProfielScreen />
+      {/* <ProfielScreen /> */}
     </>
   );
 }

@@ -10,6 +10,8 @@ import Signup from './components/Login/Signup';
 import Home from './components/pages/Home';
 import { useCurrentUser } from './hooks/useCurrentUser';
 import Signout from './components/Login/Signout';
+import Footer from './components/Footer/Footer';
+import Product from './components/side2/components/Product';
 
 
 function App() {
@@ -33,7 +35,9 @@ function App() {
     <Routes>
       <Route path='/home' element={<Home/>}/>
       <Route path="/signout" element={<Signout />} />
+      <Route path="/product" element={<Product/>}/>
     </Routes>
+    <Footer/>
     </>
   )
 }

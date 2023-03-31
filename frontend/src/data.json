@@ -1,0 +1,10 @@
+{
+  "Product": [
+    { "id": "1", "name": "DSLR Camera", "image":"", "price":"$11,70" },
+    { "id": "2", "name": "Desktop & laptop","image":"", "price":"$11,70" },
+    { "id": "3", "name": "Speaker","image":"", "price":"$11,70" },
+    { "id": "4", "name": "Wireless headphones","image":"", "price":"$11,70" },
+    { "id": "5", "name": "Play game","image":"", "price":"$11,70" },
+    { "id": "6", "name": "JBL bar 2.1 deep bass","image":"", "price":"$11,70" }
+  ]
+}
